@@ -30,6 +30,7 @@
     _Pragma("GCC diagnostic ignored \"-Wstrict-overflow\"")         \
     _Pragma("GCC diagnostic ignored \"-Wswitch-default\"")          \
     _Pragma("GCC diagnostic ignored \"-Wundef\"")                   \
+    _Pragma("GCC diagnostic ignored \"-Wwritable-strings\"")        \
     _Pragma("GCC diagnostic ignored \"-Wunused-parameter\"")
 
 /* Addition options that can be enabled 

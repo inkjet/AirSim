@@ -21,7 +21,7 @@ void MultiRotorConnector::initialize(AFlyingPawn* vehicle_pawn, MultiRotorConnec
         vehicle_params_.reset(new msr::airlib::RosFlightQuadX());
         break;
     default:
-        throw std::exception("ConfigType is not supported in MultiRotorConnector::initialize");
+        throw std::runtime_error("ConfigType is not supported in MultiRotorConnector::initialize");
     }
 
     //init physics vehicle
@@ -61,7 +61,7 @@ void MultiRotorConnector::beginPlay()
 
         vehicle_.getController()->start();
     }
-    catch (std::exception ex) {
+    catch (std::runtime_error ex) {
 
         UAirBlueprintLib::LogMessage(FString("Vehicle controller cannot be started, please check your settings.json"), FString(ex.what()), LogDebugLevel::Failure, 180);
         UAirBlueprintLib::LogMessage(FString(ex.what()), TEXT(""), LogDebugLevel::Failure, 180);
@@ -107,7 +107,7 @@ void MultiRotorConnector::updateRendering(float dt)
 	try {
 		vehicle_.getController()->reportTelemetry(dt);
 	}
-	catch (std::exception &e) {
+	catch (std::runtime_error &e) {
 		UAirBlueprintLib::LogMessage(FString(e.what()), TEXT(""), LogDebugLevel::Failure, 30);
 	}
 

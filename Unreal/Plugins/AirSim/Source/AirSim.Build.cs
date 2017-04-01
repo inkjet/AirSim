@@ -63,6 +63,7 @@ public class AirSim : ModuleRules
 
         AddEigenDependency();
         PrivateIncludePaths.Add(Path.Combine(AirSimPath, "include"));
+        PublicIncludePaths.Add(Path.Combine(AirSimPath, "include"));
         AddOSLibDependencies(Target);
         LoadAirSimDependency(Target, "MavLinkCom", "MavLinkCom");
 
